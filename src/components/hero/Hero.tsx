@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 const Hero = () => {
@@ -32,9 +33,11 @@ const Hero = () => {
 
         {/* Optional Image */}
         <div className="flex-1">
-          <img
-            src="https://static.vecteezy.com/system/resources/previews/038/252/707/non_2x/hospital-building-illustration-medical-clinic-isolated-on-white-background-vector.jpg"
+          <Image
+            src="/images/hero_bg.png"
             alt="Healthcare illustration"
+            width={200}
+            height={200}
             className="w-full max-w-md mx-auto md:max-w-full"
           />
         </div>
