@@ -19,6 +19,14 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+    rules: {
+      // Disable any type warnings
+      "@typescript-eslint/no-explicit-any": "off",
+
+      // Example: enforce semicolons and double quotes
+      "semi": ["error", "always"],
+      "quotes": ["error", "double"],
+    },
   },
 ];
 

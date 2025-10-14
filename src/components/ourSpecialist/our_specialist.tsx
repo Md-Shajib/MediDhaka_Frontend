@@ -2,7 +2,7 @@ import Image from "next/image";
 import SpecialistCarousel from "./specialist_carosole";
 import { OUR_SPECIALITIES } from "@/constant/our_specialist";
 
-export default function OurSpecialist() {
+export default function OurSpeciality() {
   return (
     <>
       <section className="w-full px-4 md:px-8 lg:px-16 bg-gradient-to-r from-blue-100 to-blue-50">
@@ -19,7 +19,7 @@ export default function OurSpecialist() {
             </div>
             <div>
               <h2 className="text-3xl font-bold text-blue-900 mb-4">
-                Our Specialist
+                Our Speciality
               </h2>
               <div className="w-full max-w-4xl mx-auto overflow-hidden">
                 <SpecialistCarousel carouselData={OUR_SPECIALITIES}/>

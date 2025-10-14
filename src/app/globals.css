@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: radial-gradient(circle at top left, #d6ffeadc, #cdfdffd6);
+  --background: radial-gradient(circle at top left, #ebf4ff, #f0f6fe);
   --foreground: #171717;
 }
 

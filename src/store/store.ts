@@ -1,12 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { hospitalApi } from '@/features/hospital/hospitalApi';
-import { doctorApi } from '@/features/doctor/doctorApi';
+import { configureStore } from "@reduxjs/toolkit";
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { DoctorApi } from "./service/doctor.service";
 
 export const store = configureStore({
   reducer: {
-    [hospitalApi.reducerPath]: hospitalApi.reducer,
-    [doctorApi.reducerPath]: doctorApi.reducer,
+    [DoctorApi.reducerPath]: DoctorApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(hospitalApi.middleware, doctorApi.middleware),
+    getDefaultMiddleware().concat(DoctorApi.middleware),
 });
+
+setupListeners(store.dispatch);
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
