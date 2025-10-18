@@ -1,18 +1,17 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-// import DoctorCarousel from "./_components/DoctorCarousel";
 import DoctorCard from "./DoctorCard";
 
-// ✅ Example static data (replace with API hook like useGetDoctorsQuery)
+// static data
 import { doctors } from "@/constant/doctors";
 import DoctorBanner from "./DoctorBanner";
 
 
 const doctorBannerData = {
   title: "Find the Best Doctors Near You",
-  image: "/images/doctor/banner-bg.jpg",
-  searchPlaceholder: "Search for doctors, specialties, or hospitals",
+  image: "/images/doctors/banner_bg.png",
+  searchPlaceholder: "Search for doctors",
   locationLabel: "Dhaka, Bangladesh",
   searchSuggestion: [
     { item: "Cardiologist" },
@@ -45,19 +44,19 @@ export default function DoctorView() {
 
   return (
     <div className="mt-6 mb-12">
-      {/* 🩺 Top Carousel */}
+      {/* Doctor Banner */}
       <div className="mb-10">
         <DoctorBanner title={doctorBannerData.title} image={doctorBannerData.image} searchSuggestion={doctorBannerData.searchSuggestion}/>
       </div>
 
-      {/* 🧑‍⚕️ Doctor Cards Grid */}
+      {/* Doctor Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-5">
         {currentDoctors.map((doctor) => (
           <DoctorCard key={doctor.id} doctor={doctor} />
         ))}
       </div>
 
-      {/* 🩻 Empty State */}
+      {/* Empty State */}
       {showEmpty && (
         <div className="w-full text-center py-10">
           <Image
@@ -71,7 +70,7 @@ export default function DoctorView() {
         </div>
       )}
 
-      {/* 🔢 Pagination */}
+      {/* Pagination */}
       {doctors.length > limit && (
         <div className="flex justify-center mt-10 space-x-2">
           <button

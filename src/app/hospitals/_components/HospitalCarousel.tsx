@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,12 +15,10 @@ export interface HospitalCarouselItem {
   profile_image: string;
   name: string;
   specialty: string;
-  hospital: string;
   address: string;
   phone: string;
   email: string;
-  cover_image?: string;
-  updated_at: string;
+  established_at: string;
 }
 
 export interface HospitalCarouselProps {
@@ -39,15 +37,15 @@ export default function HospitalCarousel({
         spaceBetween={0}
         loop={true}
         navigation={{
-          nextEl: `.doctor-swiper-next-${className}`,
-          prevEl: `.doctor-swiper-prev-${className}`,
+          nextEl: `.hospital-swiper-next-${className}`,
+          prevEl: `.hospital-swiper-prev-${className}`,
         }}
         autoplay={{
-          delay: 4000,
+          delay: 6000,
           disableOnInteraction: false,
         }}
         pagination={{
-          el: `.doctor-swiper-pagination-${className}`,
+          el: `.hospital-swiper-pagination-${className}`,
           clickable: true,
           renderBullet: (index, className) => {
             return `<span class="${className} !bg-[#006466] !rounded-full !mx-1 !inline-block transition-all duration-300 ease-in-out"></span>`;
@@ -58,7 +56,7 @@ export default function HospitalCarousel({
           0: { navigation: { enabled: false } },
           767: { navigation: { enabled: true } },
         }}
-        className={`mySwiper !m-[-10px] doctor-swiper-${className}`}
+        className={`mySwiper !m-[-10px] hospital-swiper-${className}`}
         onSlideChangeTransitionStart={(swiper) => {
           swiper.slides.forEach((slide: any) => {
             const content = slide.querySelector(".slide-content");
@@ -83,28 +81,20 @@ export default function HospitalCarousel({
           }
         }}
       >
-        {carouselData?.map((doctor, index) => (
-          <SwiperSlide key={doctor.id} className="p-[10px]">
+        {carouselData?.map((hospital, index) => (
+          <SwiperSlide key={hospital.id} className="p-[10px]">
             <Link
-            //   href={`/doctors/${doctor.slug}`}
             href="#"
               className="flex flex-col md:flex-row bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition-all duration-500"
             >
               {/* Image Section */}
               <div className="relative md:w-7/12">
                 <Image
-                  src={doctor.profile_image || "/images/doctors/default.jpg"}
-                  alt={doctor.name}
+                  src={hospital.profile_image || "/images/hospitals/default.jpg"}
+                  alt={hospital.name}
                   width={580}
                   height={358}
                   className="w-full h-[200px] md:h-[280px] lg:h-[358px] object-cover rounded"
-                />
-                <Image
-                  src={"/images/doctors/card_rectangle.png"}
-                  alt="img"
-                  height={360}
-                  width={17}
-                  className="absolute top-[-2px] right-[-4px] hidden md:block md:h-[283px] lg:h-[362px]"
                 />
               </div>
 
@@ -118,25 +108,25 @@ export default function HospitalCarousel({
               >
                 <div className="flex flex-col gap-2">
                   <h2 className="text-lg md:text-[22px] lg:text-[28px] font-semibold text-[#006466]">
-                    {doctor.name}
+                    {hospital.name}
                   </h2>
-                  <p className="text-sm md:text-[15px] text-gray-700 font-medium">
-                    {doctor.specialty}
+                  <p className="text-sm md:text-lg font-medium text-gray-700">
+                    {hospital.specialty}
                   </p>
-                  <p className="text-sm text-gray-600">
-                    🏥 {doctor.hospital}
-                  </p>
-                  {doctor.phone && (
-                    <p className="text-sm text-gray-600">📞 {doctor.phone}</p>
+                  {hospital.phone && (
+                    <p className="text-sm text-gray-600">Phone: {hospital.phone}</p>
                   )}
-                  {doctor.email && (
-                    <p className="text-sm text-gray-600">✉️ {doctor.email}</p>
+                  {hospital.email && (
+                    <p className="text-sm text-gray-600">Email: {hospital.email}</p>
+                  )}
+                  {hospital.address && (
+                    <p className="text-sm text-gray-600"><span className="flex gap-2 items-center"><MapPin size={17}/> {hospital.address}</span></p>
                   )}
                 </div>
                 <div className="flex items-center justify-between mt-4">
                   <p className="text-sm text-gray-500">
-                    Updated:{" "}
-                    {new Date(doctor.updated_at).toLocaleDateString("en-US", {
+                    Established:{" "}
+                    {new Date(hospital.established_at).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
                       year: "numeric",
@@ -154,12 +144,12 @@ export default function HospitalCarousel({
         {/* Navigation Buttons */}
         <div className="!hidden md:!flex">
           <button
-            className={`doctor-swiper-prev-${className} absolute top-1/2 -translate-y-[50%] z-10 left-[10px] rounded-tr-md rounded-br-md bg-[#eee] text-[#212529] w-[34px] h-14 shadow-md flex items-center justify-center hover:bg-[#006466] hover:text-white transition-all`}
+            className={`hospital-swiper-prev-${className} absolute top-1/2 -translate-y-[50%] z-10 left-[10px] rounded-tr-md rounded-br-md bg-[#eee] text-[#212529] w-[34px] h-14 shadow-md flex items-center justify-center hover:bg-[#006466] hover:text-white transition-all`}
           >
             <ChevronLeft size={21} />
           </button>
           <button
-            className={`doctor-swiper-next-${className} absolute top-1/2 -translate-y-[50%] z-10 right-[10px] rounded-tl-md rounded-bl-md bg-[#eee] text-[#212529] w-[34px] h-14 shadow-md flex items-center justify-center hover:bg-[#006466] hover:text-white transition-all`}
+            className={`hospital-swiper-next-${className} absolute top-1/2 -translate-y-[50%] z-10 right-[10px] rounded-tl-md rounded-bl-md bg-[#eee] text-[#212529] w-[34px] h-14 shadow-md flex items-center justify-center hover:bg-[#006466] hover:text-white transition-all`}
           >
             <ChevronRight size={21} />
           </button>
@@ -168,7 +158,7 @@ export default function HospitalCarousel({
 
       {/* Custom Pagination */}
       <div
-        className={`doctor-swiper-pagination-${className} w-full flex justify-center mt-6`}
+        className={`hospital-swiper-pagination-${className} w-full flex justify-center mt-6`}
       ></div>
     </div>
   );

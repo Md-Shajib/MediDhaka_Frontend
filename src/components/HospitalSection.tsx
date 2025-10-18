@@ -9,7 +9,7 @@ const HospitalSection = () => {
 //   const { data: hospitals, isLoading, isError } = useGetHospitalsQuery();
 
   return (
-    <section className="w-full py-16 px-4 md:px-8 lg:px-16 bg-gray-50">
+    <section className="w-full py-16 px-4 md:px-8 lg:px-16 bg-[#ebf4ff]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-blue-900 mb-4">Hospitals in Dhaka</h2>
         <p className="text-gray-700 mb-8">

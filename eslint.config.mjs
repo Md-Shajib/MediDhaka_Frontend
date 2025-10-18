@@ -25,7 +25,7 @@ const eslintConfig = [
 
       // Example: enforce semicolons and double quotes
       "semi": ["error", "always"],
-      "quotes": ["error", "double"],
+      "quotes": ["error", "double", "single", "escape"],
     },
   },
 ];

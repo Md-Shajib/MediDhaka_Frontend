@@ -27,7 +27,7 @@ export default function DoctorBanner({
         {title}
       </h1>
 
-      {/* 🔍 Search Box */}
+      {/* Search Box */}
       <div className="flex w-full max-w-3xl bg-white rounded-full shadow-md mt-5 overflow-hidden">
         <input
           type="text"
@@ -50,7 +50,7 @@ export default function DoctorBanner({
         </button>
       </div>
 
-      {/* 🩺 Search Suggestions */}
+      {/* Search Suggestions */}
       {searchSuggestion && searchSuggestion.length > 0 && (
         <div className="flex flex-wrap justify-center gap-2 mt-4">
           {searchSuggestion.map((suggestion, i) => (
