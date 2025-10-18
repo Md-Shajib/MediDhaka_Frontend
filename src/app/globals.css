@@ -3,11 +3,15 @@
 :root {
   --background: radial-gradient(circle at top left, #ebf4ff, #f0f6fe);
   --foreground: #171717;
+  --primary: #0c90ad;
+  --secondary: #989898;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -27,4 +31,13 @@ body {
 
 .swiper-pagination-bullet-active {
   width: 20px !important;
+}
+
+.btn-primary {
+  background-color: #006466;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #005055;
 }

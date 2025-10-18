@@ -1,20 +1,19 @@
 "use client";
-import { use } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import WebLayout from "@/app/layout/web_layout";
+import { useGetHospitalsByIdQuery } from "@/store/service/hospital.service";
 import {
-  MapPin,
-  Phone,
-  Mail,
-  Calendar,
-  Clock,
   ArrowLeft,
   Building2,
+  Calendar,
+  Clock,
+  Mail,
+  MapPin,
+  Phone,
   Share2,
 } from "lucide-react";
-import { useGetHospitalsByIdQuery } from "@/store/service/hospital.service";
-import { data } from "framer-motion/client";
+import Image from "next/image";
+import Link from "next/link";
+import { use } from "react";
 
 interface PageProps {
   params: Promise<{ id: string }>;

@@ -15,8 +15,7 @@ export interface Hospital {
 
 export default function HospitalView() {
   const pagination = { page: 1, limit: 9, search: "" };
-  const { data: hospitalCardData, isLoading } =
-    useGetHospitalsQuery(pagination);
+  const { data: hospitalCardData, isLoading } = useGetHospitalsQuery(pagination);
   return (
     <>
       <div>

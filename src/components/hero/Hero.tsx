@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
         {/* Text Content */}
         <div className="flex-1 text-center md:text-left">
-          <h1 className="text-4xl md:text-5xl font-bold text-blue-900 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-primary leading-tight">
             Find the Right Doctor & Hospital in Dhaka
           </h1>
           <p className="mt-4 text-gray-700 text-lg md:text-xl">

@@ -6,6 +6,9 @@ import DoctorCard from "./DoctorCard";
 // static data
 import { doctors } from "@/constant/doctors";
 import DoctorBanner from "./DoctorBanner";
+import { useGetDoctorsQuery } from "@/store/service/doctor.service";
+import { Doctor } from "@/types/doctor";
+
 
 
 const doctorBannerData = {
@@ -24,6 +27,9 @@ const doctorBannerData = {
 
 
 export default function DoctorView() {
+  const pagination = { page: 1, limit: 9, search: "" };
+  const {data: DoctorCardData, isLoading} = useGetDoctorsQuery(pagination);
+  // console.log("Doctor Data: ", DoctorCardData)
   const [page, setPage] = useState(1);
   const limit = 9;
   const totalPages = Math.ceil(doctors.length / limit);
@@ -51,8 +57,8 @@ export default function DoctorView() {
 
       {/* Doctor Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-5">
-        {currentDoctors.map((doctor) => (
-          <DoctorCard key={doctor.id} doctor={doctor} />
+        {DoctorCardData?.data?.map((doctor: Doctor) => (
+          <DoctorCard key={doctor.doctor_id} doctor={doctor} />
         ))}
       </div>
 
@@ -60,7 +66,7 @@ export default function DoctorView() {
       {showEmpty && (
         <div className="w-full text-center py-10">
           <Image
-            src="/images/service/no_service.jpg"
+            src="/images/doctors/no_doctors.jpg"
             alt="No doctors found"
             width={100}
             height={100}

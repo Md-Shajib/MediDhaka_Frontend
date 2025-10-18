@@ -14,13 +14,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  const handleSearch = (query: string) => {
-    console.log("Search query:", query);
-    // Dispatch Redux search action here
-  };
-
   return (
-    <nav className="w-full bg-[#d8eefc] shadow-md px-4 py-3 sticky top-0 z-40">
+    <nav className="w-full bg-[#eef5f9] shadow-md px-4 py-3 sticky top-0 z-40">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
@@ -61,9 +56,9 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Search Button (Desktop) */}
+        {/* Button (Desktop) */}
         <button
-          className="hidden md:inline-block text-sm bg-blue-600 text-white px-4 py-2.5 rounded-md hover:bg-blue-700 transition"
+          className="btn-primary hidden md:inline-block text-sm text-white px-4 py-2.5 rounded-md hover:bg-blue-700 transition"
         >
           <span className="flex gap-3 items-center ">
             Get Started
@@ -82,7 +77,7 @@ export default function Navbar() {
       {/* Mobile Dropdown Menu */}
       <MobileNav menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
-      {open && <SearchPopup onClose={close} onSearch={handleSearch} />}
+      {open && <SearchPopup onClose={close} />}
     </nav>
   );
 }

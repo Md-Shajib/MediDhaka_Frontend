@@ -5,8 +5,9 @@ import HospitalTable from "./_components/hospitals/HospitalTable";
 import HospitalFormModal from "./_components/hospitals/HospitalFormModal";
 import DashboardHeader from "./_components/DashboardHeader";
 import DashboardStats from "./_components/hospitals/DashboardStats";
+import DashboardNav from "@/components/navbar/DashboardNav";
 
-export default function DashboardPage() {
+export default function DashboardHospitalPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingHospital, setEditingHospital] = useState<number | null>(null);
 
@@ -27,6 +28,8 @@ export default function DashboardPage() {
   };
 
   return (
+    <>
+    <DashboardNav />
     <WebLayout>
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100 py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-6">
@@ -50,5 +53,6 @@ export default function DashboardPage() {
         </div>
       </div>
     </WebLayout>
+    </>
   );
 }
