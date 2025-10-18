@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { DoctorApi } from "./service/doctor.service";
-import { HospitalApi } from "./service/hospita.service";
+import { HospitalApi } from "./service/hospital.service";
 
 export const store = configureStore({
   reducer: {

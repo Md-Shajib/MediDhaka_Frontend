@@ -17,7 +17,7 @@ export const HospitalApi = createApi({
           search: search,
         },
       }),
-      transformResponse: (response: any) => response?.data || [],
+      transformResponse: (response: any) => response || [],
       providesTags: ["Hospitals"],
     }),
 
@@ -28,19 +28,41 @@ export const HospitalApi = createApi({
       providesTags: ["Hospitals"],
     }),
 
-    addHospital: builder.mutation({
+    // Add new hospital
+    createHospital: builder.mutation<any, any>({
       query: (newHospital) => ({
-        url: "hospitals",
+        url: "/hospitals",
         method: "POST",
         body: newHospital,
       }),
+      invalidatesTags: ["Hospitals"],
     }),
-    // update, delete...
+    
+    // Update hospital
+    updateHospital: builder.mutation<any, { id: number; data: any }>({
+      query: ({ id, data }) => ({
+        url: `/hospitals/${id}`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["Hospitals"],
+    }),
+
+    // Delete hospital
+    deleteHospital: builder.mutation<any, number | string>({
+      query: (id) => ({
+        url: `/hospitals/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Hospitals"],
+    }),
   }),
 });
 
 export const {
   useGetHospitalsQuery,
   useGetHospitalsByIdQuery,
-  useAddHospitalMutation,
+  useCreateHospitalMutation,
+  useUpdateHospitalMutation,
+  useDeleteHospitalMutation,
 } = HospitalApi;

@@ -1,4 +1,4 @@
-import { useGetHospitalsQuery } from "@/store/service/hospita.service";
+import { useGetHospitalsQuery } from "@/store/service/hospital.service";
 import HospitalCard from "./HospitalCard";
 
 export interface Hospital {
@@ -22,7 +22,7 @@ export default function HospitalView() {
       <div>
         <h2 className="text-2xl font-bold text-[#016b83] pb-1">Our Hospitals</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-5">
-          {hospitalCardData?.map((hospital: Hospital) => (
+          {hospitalCardData?.data?.map((hospital: Hospital) => (
             <HospitalCard
               key={hospital.hospital_id}
               hospital={hospital}

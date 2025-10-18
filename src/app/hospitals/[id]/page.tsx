@@ -13,7 +13,7 @@ import {
   Building2,
   Share2,
 } from "lucide-react";
-import { useGetHospitalsByIdQuery } from "@/store/service/hospita.service";
+import { useGetHospitalsByIdQuery } from "@/store/service/hospital.service";
 import { data } from "framer-motion/client";
 
 interface PageProps {
