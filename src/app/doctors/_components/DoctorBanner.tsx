@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MapPin, Search } from "lucide-react";
 
 interface DoctorBannerProps {
@@ -8,15 +8,15 @@ interface DoctorBannerProps {
   searchSuggestion?: {
     item: string;
   }[];
+  setSearch: (value: string) => void;
 }
 
 export default function DoctorBanner({
   title,
   image,
   searchSuggestion,
+  setSearch,
 }: DoctorBannerProps) {
-  const [search, setSearch] = useState("");
-
   return (
     <div
       style={{ backgroundImage: `url(${image})` }}
@@ -31,7 +31,6 @@ export default function DoctorBanner({
         <input
           type="text"
           placeholder="Search for doctor..."
-          value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="flex-1 px-4 py-2 text-base outline-none border-none"
         />

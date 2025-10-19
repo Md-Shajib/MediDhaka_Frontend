@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Doctor } from "@/types/doctor";
 import { CalendarDays, MapPin, Phone, Mail } from "lucide-react";
+import Link from "next/link";
 
 interface DoctorCardProps {
   doctor: Doctor;
@@ -52,9 +53,11 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
             year: "numeric",
           })}
         </span>
-        <button className="text-[#006466] text-sm font-semibold border-b-2 border-transparent group-hover:border-[#006466] transition-all">
+        <Link 
+        href={`/doctors/${doctor.doctor_id}`} 
+        className="text-[#006466] text-sm font-semibold border-b-2 border-transparent group-hover:border-[#006466] transition-all">
           View Profile
-        </button>
+        </Link>
       </div>
     </div>
   );

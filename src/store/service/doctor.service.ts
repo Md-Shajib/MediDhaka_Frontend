@@ -73,9 +73,9 @@ export const DoctorApi = createApi({
 
     // Get doctor's hospitals
     getDoctorHospitals: builder.query<any[], number>({
-      query: (doctorId) => `/hospital-doctor/${doctorId}`,
-      providesTags: (result, error, doctorId) => [
-        { type: 'HospitalDoctor', id: doctorId },
+      query: (hospitalId) => `/hospital-doctor/${hospitalId}`,
+      providesTags: (result, error, hospitalId) => [
+        { type: 'HospitalDoctor', id: hospitalId },
       ],
     }),
 

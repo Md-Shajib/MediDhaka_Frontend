@@ -19,7 +19,7 @@ export default function AspectRatioImage({
 
   return (
     <div
-      className="relative w-full overflow-hidden rounded-xl bg-white"
+      className="relative w-full overflow-hidden rounded-xl bg-gray-200"
       style={{ paddingTop: `${paddingTop}%` }}
     >
       <Image src={src} alt={alt} fill style={{ objectFit: "cover" }} priority />

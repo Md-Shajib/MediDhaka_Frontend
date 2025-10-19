@@ -4,16 +4,20 @@ import {
   Building2,
   Calendar,
   Clock,
+  DropletsIcon,
   Mail,
   MapPin,
   Phone,
   Share2,
+  SquareMenu,
 } from "lucide-react";
 import { use } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import WebLayout from "@/app/layout/web_layout";
 import { useGetHospitalsByIdQuery } from "@/store/service/hospital.service";
+import { useGetDoctorHospitalsQuery } from "@/store/service/doctor.service";
+import AspectRatioImage from "../_components/AspectRatioImage";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -29,7 +33,8 @@ export default function HospitalDetailPage({ params }: PageProps) {
     isError,
   } = useGetHospitalsByIdQuery(hospitalId);
 
-  console.log("Hospital Detail Data:", hospitalId);
+  const {data: Doctors} = useGetDoctorHospitalsQuery(hospitalId);
+  console.log("Doc: ", Doctors)
 
   if (isLoading) {
     return (
@@ -286,6 +291,35 @@ export default function HospitalDetailPage({ params }: PageProps) {
                 </a>
               </div>
             </div>
+            {Doctors && Doctors?.length > 0 && (
+              <div className="p-10">
+                <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
+                  <SquareMenu size={24} className="text-teal-800" />
+                  Our Doctors
+                </h2>
+                {Doctors?.length > 0 && (
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                    {Doctors.map((doctor) => (
+                      <div
+                        key={doctor.doctor_id}
+                        className="border border-gray-300 rounded-xl shadow-sm hover:shadow-md transition p-1 bg-teal-50 hover:bg-teal-100"
+                      >
+                        <div className="w-full  overflow-hidden rounded-lg mb-3 bg-gray-200">
+                          <AspectRatioImage
+                            src={doctor.image_url}
+                            alt={doctor.name}
+                            aspectRatio="16/9"
+                          />
+                        </div>
+                        <h3 className="text-center font-medium text-gray-800 text-sm md:text-base">
+                          {doctor.name}
+                        </h3>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>

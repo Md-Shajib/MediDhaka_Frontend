@@ -37,7 +37,7 @@ const HospitalCard = memo(({ hospital }: HospitalCardProps) => {
 
       {/* Hospital Info */}
       <div className="flex flex-col flex-grow px-5 pt-5 pb-4 space-y-3">
-        <h3 className="text-lg font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-blue-600 transition-colors duration-200">
+        <h3 className="text-lg font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-teal-800 transition-colors duration-200">
           {hospital.name}
         </h3>
 
@@ -56,7 +56,7 @@ const HospitalCard = memo(({ hospital }: HospitalCardProps) => {
           {hospital.phone_number && (
             <a
               href={`tel:${hospital.phone_number}`}
-              className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors"
+              className="flex items-center gap-2 text-gray-600 hover:text-teal-700 transition-colors"
               onClick={(e) => e.stopPropagation()}
             >
               <Phone
@@ -71,7 +71,7 @@ const HospitalCard = memo(({ hospital }: HospitalCardProps) => {
           {hospital.email && (
             <a
               href={`mailto:${hospital.email}`}
-              className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors truncate"
+              className="flex items-center gap-2 text-gray-600 hover:text-teal-600 transition-colors truncate"
               onClick={(e) => e.stopPropagation()}
             >
               <Mail
@@ -94,7 +94,7 @@ const HospitalCard = memo(({ hospital }: HospitalCardProps) => {
 
         <Link
           href={`/hospitals/${hospital.hospital_id}`}
-          className="text-blue-600 text-sm font-semibold hover:text-blue-700 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300 group-hover:after:w-full"
+          className="text-[#006466] text-sm font-semibold hover:text-teal-800 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-teal-600 after:transition-all after:duration-300 group-hover:after:w-full"
           aria-label={`View details for ${hospital.name}`}
         >
           View Details

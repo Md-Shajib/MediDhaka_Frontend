@@ -70,15 +70,15 @@ const SearchPopup: React.FC<Props> = ({ onClose }) => {
                   {/* Doctors */}
                   {data?.data?.doctor?.length > 0 && (
                     <div>
-                      <h3 className="text-md tracking-wider text-secondary mb-2">
-                        Doctors
+                      <h3 className="flex justify-between text-md tracking-wider text-secondary mb-2 mr-5">
+                        <span>Doctors</span>
+                        <Link href="/doctors" className="text-[12px] tracking-widest text-teal-600 hover:text-teal-700">SEE ALL</Link>
                       </h3>
                       <div className="space-y-2">
                         {data.data.doctor.slice(0, 3).map((d: any) => (
-                          <div className=" mr-5 rounded-md bg-white hover:bg-gray-100  border border-gray-300">
+                          <div key={d.id} className=" mr-5 rounded-md bg-white hover:bg-gray-100  border border-gray-300">
                             <Link
                               href={`/doctors/${d.id}`}
-                              key={d.id}
                               className="flex items-center gap-3 cursor-pointer"
                             >
                               <img
@@ -97,8 +97,9 @@ const SearchPopup: React.FC<Props> = ({ onClose }) => {
                   {/* Hospitals */}
                   {data?.data?.hospital?.length > 0 && (
                     <div>
-                      <h3 className="text-md tracking-wider text-secondary mb-2">
-                        Hospitals
+                      <h3 className="flex justify-between text-md tracking-wider text-secondary mb-2 mr-5">
+                        <span>Hospitals</span>
+                        <Link href="/hospitals" className="text-[12px] tracking-widest text-teal-600 hover:text-teal-700">SEE ALL</Link>
                       </h3>
                       <div className="space-y-2">
                         {data.data.hospital.slice(0, 3).map((h: any) => (
