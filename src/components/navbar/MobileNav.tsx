@@ -1,13 +1,13 @@
-import { NAV_LINKS } from "@/constant/navbar";
-import { Search } from "lucide-react";
 import Link from "next/link";
+import { Search } from "lucide-react";
+import { NAV_LINKS } from "@/constant/navbar";
 
 export default function MobileNav({
   menuOpen,
   setMenuOpen,
 }: {
-  menuOpen: boolean,
-  setMenuOpen: (open: boolean) => void
+  menuOpen: boolean;
+  setMenuOpen: (open: boolean) => void;
 }) {
   return (
     <>

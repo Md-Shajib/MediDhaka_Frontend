@@ -1,14 +1,13 @@
 "use client";
-
-import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/autoplay";
+import Link from "next/link";
+import Image from "next/image";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "swiper/css/autoplay";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 export interface HospitalCarouselItem {
   id: number;
@@ -84,13 +83,15 @@ export default function HospitalCarousel({
         {carouselData?.map((hospital, index) => (
           <SwiperSlide key={hospital.id} className="p-[10px]">
             <Link
-            href="#"
+              href="#"
               className="flex flex-col md:flex-row bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition-all duration-500"
             >
               {/* Image Section */}
               <div className="relative md:w-7/12">
                 <Image
-                  src={hospital.profile_image || "/images/hospitals/default.jpg"}
+                  src={
+                    hospital.profile_image || "/images/hospitals/default.jpg"
+                  }
                   alt={hospital.name}
                   width={580}
                   height={358}
@@ -114,23 +115,34 @@ export default function HospitalCarousel({
                     {hospital.specialty}
                   </p>
                   {hospital.phone && (
-                    <p className="text-sm text-gray-600">Phone: {hospital.phone}</p>
+                    <p className="text-sm text-gray-600">
+                      Phone: {hospital.phone}
+                    </p>
                   )}
                   {hospital.email && (
-                    <p className="text-sm text-gray-600">Email: {hospital.email}</p>
+                    <p className="text-sm text-gray-600">
+                      Email: {hospital.email}
+                    </p>
                   )}
                   {hospital.address && (
-                    <p className="text-sm text-gray-600"><span className="flex gap-2 items-center"><MapPin size={17}/> {hospital.address}</span></p>
+                    <p className="text-sm text-gray-600">
+                      <span className="flex gap-2 items-center">
+                        <MapPin size={17} /> {hospital.address}
+                      </span>
+                    </p>
                   )}
                 </div>
                 <div className="flex items-center justify-between mt-4">
                   <p className="text-sm text-gray-500">
                     Established:{" "}
-                    {new Date(hospital.established_at).toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    })}
+                    {new Date(hospital.established_at).toLocaleDateString(
+                      "en-US",
+                      {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      }
+                    )}
                   </p>
                   <button className="text-[#006466] font-semibold text-sm border-b-2 border-transparent hover:border-[#006466] transition-all">
                     View Profile

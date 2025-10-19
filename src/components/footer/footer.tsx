@@ -1,6 +1,6 @@
-import FooterContact from "./footer_contact";
-import LogoSection from "./logo_section";
 import QuickLinks from "./quick_links";
+import LogoSection from "./logo_section";
+import FooterContact from "./footer_contact";
 
 export default function Footer() {
   return (

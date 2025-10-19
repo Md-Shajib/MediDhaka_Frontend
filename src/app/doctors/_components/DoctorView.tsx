@@ -1,15 +1,11 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import DoctorCard from "./DoctorCard";
-
-// static data
-import { doctors } from "@/constant/doctors";
-import DoctorBanner from "./DoctorBanner";
-import { useGetDoctorsQuery } from "@/store/service/doctor.service";
 import { Doctor } from "@/types/doctor";
-
-
+import DoctorBanner from "./DoctorBanner";
+import { useEffect, useState } from "react";
+import { doctors } from "@/constant/doctors";
+import { useGetDoctorsQuery } from "@/store/service/doctor.service";
 
 const doctorBannerData = {
   title: "Find the Best Doctors Near You",
@@ -25,10 +21,9 @@ const doctorBannerData = {
   ],
 };
 
-
 export default function DoctorView() {
   const pagination = { page: 1, limit: 9, search: "" };
-  const {data: DoctorCardData, isLoading} = useGetDoctorsQuery(pagination);
+  const { data: DoctorCardData, isLoading } = useGetDoctorsQuery(pagination);
   // console.log("Doctor Data: ", DoctorCardData)
   const [page, setPage] = useState(1);
   const limit = 9;
@@ -52,7 +47,11 @@ export default function DoctorView() {
     <div className="mt-6 mb-12">
       {/* Doctor Banner */}
       <div className="mb-10">
-        <DoctorBanner title={doctorBannerData.title} image={doctorBannerData.image} searchSuggestion={doctorBannerData.searchSuggestion}/>
+        <DoctorBanner
+          title={doctorBannerData.title}
+          image={doctorBannerData.image}
+          searchSuggestion={doctorBannerData.searchSuggestion}
+        />
       </div>
 
       {/* Doctor Cards Grid */}

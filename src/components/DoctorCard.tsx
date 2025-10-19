@@ -23,8 +23,6 @@ export default function DoctorCard({
 }: DoctorCardProps) {
   return (
     <div className="group bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-300">
-      {/* Accent border on hover */}
-
       <div className="flex items-center gap-5">
         {/* Doctor Image */}
         <div className="relative w-20 h-20 rounded-full overflow-hidden border border-gray-300 group-hover:border-blue-300 transition-all duration-300">

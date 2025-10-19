@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
-import { CalendarDays, MapPin, Phone, Mail } from "lucide-react";
 import { Doctor } from "@/types/doctor";
+import { CalendarDays, MapPin, Phone, Mail } from "lucide-react";
 
 interface DoctorCardProps {
   doctor: Doctor;
 }
 
-export default function DoctorCard( {doctor}  : DoctorCardProps) {
+export default function DoctorCard({ doctor }: DoctorCardProps) {
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer border border-gray-100">
       {/* Doctor Image */}
@@ -30,10 +30,6 @@ export default function DoctorCard( {doctor}  : DoctorCardProps) {
         <p className="text-sm font-medium text-[#006466] mb-2">
           {doctor.specialty}
         </p>
-        {/* <p className="flex items-center gap-1 text-gray-600 text-sm mb-2">
-          <MapPin size={15} /> {doctor.}
-        </p> */}
-
         {doctor.phone_number && (
           <p className="flex items-center gap-1 text-gray-600 text-sm">
             <Phone size={15} /> {doctor.phone_number}

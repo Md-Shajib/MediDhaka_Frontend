@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import type { Metadata } from "next";
 import ReduxProvider from "@/store/ReduxProvider";
+import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,9 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Medical Service",
   description: "A modern medical service website built with Next.js and Tailwind CSS",
-  icons: {
-    icon: "/images/favicon.png",
-  },
+  icons: { icon: "/images/favicon.png" },
 };
 
 export default function RootLayout({
@@ -28,12 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ReduxProvider>
-          {children}
-        </ReduxProvider>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
+        <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>
   );

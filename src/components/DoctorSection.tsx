@@ -1,11 +1,9 @@
-'use client';
+"use client";
+import DoctorCard from "./DoctorCard";
+import { DoctorData } from "@/types/doctor";
+import { DoctorsData } from "@/constant/doctors";
 
-import { DoctorsData } from '@/constant/doctors';
-import { DoctorData } from '@/types/doctor';
-import DoctorCard from './DoctorCard';
-
-const DoctorSection = () => {
-
+export default function DoctorSection() {
   return (
     <section className="w-full py-16 px-4 md:px-8 lg:px-16 bg-[#ebf4ff]">
       <div className="max-w-7xl mx-auto">
@@ -30,6 +28,4 @@ const DoctorSection = () => {
       </div>
     </section>
   );
-};
-
-export default DoctorSection;
+}

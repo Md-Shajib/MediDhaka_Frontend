@@ -1,5 +1,5 @@
-import { FOOTER_LINKS } from "@/constant/footer";
 import Link from "next/link";
+import { FOOTER_LINKS } from "@/constant/footer";
 
 export default function QuickLinks() {
   return (

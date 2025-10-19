@@ -1,5 +1,5 @@
-import { articlesData } from "@/constant/article";
 import ArticleCard from "./ArticleCard";
+import { articlesData } from "@/constant/article";
 
 export default function ArticleSection() {
   return (

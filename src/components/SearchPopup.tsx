@@ -1,10 +1,10 @@
 "use client";
+import Link from "next/link";
+import { X } from "lucide-react";
+import debounce from "lodash.debounce";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
-import debounce from 'lodash.debounce';
 import { useGetSearchQuery } from "@/store/service/search.service";
-import Link from "next/link";
 
 interface Props {
   onClose: () => void;
@@ -74,30 +74,34 @@ const SearchPopup: React.FC<Props> = ({ onClose }) => {
           {/* Results */}
           {debouncedQuery && (
             <div className="mt-5 max-h-96 overflow-y-auto">
-              {isLoading && <p className="text-center text-gray-500">Loading...</p>}
+              {isLoading && (
+                <p className="text-center text-gray-500">Loading...</p>
+              )}
 
               {!isLoading && (
                 <div className="grid grid-cols-1 gap-6">
                   {/* Doctors */}
                   {data?.data?.doctor?.length > 0 && (
                     <div>
-                      <h3 className="text-md tracking-wider text-secondary mb-2">Doctors</h3>
+                      <h3 className="text-md tracking-wider text-secondary mb-2">
+                        Doctors
+                      </h3>
                       <div className="space-y-2">
                         {data.data.doctor.slice(0, 3).map((d: any) => (
-                          
-                           <div
-                            className=" mr-5 rounded-md bg-white hover:bg-gray-100  border border-gray-300"
-                          >
-                            <Link href={`/doctors/${d.id}`} key={d.id} className="flex items-center gap-3 cursor-pointer">
-                            <img
-                              src={d.image}
-                              alt={d.name}
-                              className="w-20 h-12 rounded-l-md object-cover"
-                            />
-                            <span className="text-gray-800">{d.name}</span>
+                          <div className=" mr-5 rounded-md bg-white hover:bg-gray-100  border border-gray-300">
+                            <Link
+                              href={`/doctors/${d.id}`}
+                              key={d.id}
+                              className="flex items-center gap-3 cursor-pointer"
+                            >
+                              <img
+                                src={d.image}
+                                alt={d.name}
+                                className="w-20 h-12 rounded-l-md object-cover"
+                              />
+                              <span className="text-gray-800">{d.name}</span>
                             </Link>
                           </div>
-                          
                         ))}
                       </div>
                     </div>
@@ -106,20 +110,26 @@ const SearchPopup: React.FC<Props> = ({ onClose }) => {
                   {/* Hospitals */}
                   {data?.data?.hospital?.length > 0 && (
                     <div>
-                      <h3 className="text-md tracking-wider text-secondary mb-2">Hospitals</h3>
+                      <h3 className="text-md tracking-wider text-secondary mb-2">
+                        Hospitals
+                      </h3>
                       <div className="space-y-2">
                         {data.data.hospital.slice(0, 3).map((h: any) => (
                           <div
                             key={h.id}
                             className="flex items-center gap-3 mr-5 rounded-md bg-white hover:bg-gray-100 cursor-pointer border border-gray-300"
                           >
-                            <Link href={`/hospitals/${h.id}`} key={h.id} className="flex items-center gap-3 cursor-pointer">
-                            <img
-                              src={h.image}
-                              alt={h.name}
-                              className="w-20 h-12 rounded-l-md object-cover"
-                            />
-                            <span className="text-gray-800">{h.name}</span>
+                            <Link
+                              href={`/hospitals/${h.id}`}
+                              key={h.id}
+                              className="flex items-center gap-3 cursor-pointer"
+                            >
+                              <img
+                                src={h.image}
+                                alt={h.name}
+                                className="w-20 h-12 rounded-l-md object-cover"
+                              />
+                              <span className="text-gray-800">{h.name}</span>
                             </Link>
                           </div>
                         ))}
@@ -128,9 +138,12 @@ const SearchPopup: React.FC<Props> = ({ onClose }) => {
                   )}
 
                   {/* No results */}
-                  {!data?.data?.doctor?.length && !data?.data?.hospital?.length && (
-                    <p className="text-center text-gray-500 mt-4">No results found.</p>
-                  )}
+                  {!data?.data?.doctor?.length &&
+                    !data?.data?.hospital?.length && (
+                      <p className="text-center text-gray-500 mt-4">
+                        No results found.
+                      </p>
+                    )}
                 </div>
               )}
             </div>

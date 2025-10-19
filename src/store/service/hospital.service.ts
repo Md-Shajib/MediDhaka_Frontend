@@ -2,8 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const HospitalApi = createApi({
   reducerPath: "hospitalApi",
-  baseQuery: fetchBaseQuery({ 
-    baseUrl: process.env.NEXT_PUBLIC_BASE_URL 
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.NEXT_PUBLIC_BASE_URL,
   }),
   tagTypes: ["Hospitals"],
   endpoints: (builder) => ({
@@ -37,7 +37,7 @@ export const HospitalApi = createApi({
       }),
       invalidatesTags: ["Hospitals"],
     }),
-    
+
     // Update hospital
     updateHospital: builder.mutation<any, { id: number; data: any }>({
       query: ({ id, data }) => ({

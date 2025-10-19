@@ -1,6 +1,4 @@
 "use client";
-import WebLayout from "@/app/layout/web_layout";
-import { useGetHospitalsByIdQuery } from "@/store/service/hospital.service";
 import {
   ArrowLeft,
   Building2,
@@ -11,9 +9,11 @@ import {
   Phone,
   Share2,
 } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 import { use } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import WebLayout from "@/app/layout/web_layout";
+import { useGetHospitalsByIdQuery } from "@/store/service/hospital.service";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -23,7 +23,11 @@ export default function HospitalDetailPage({ params }: PageProps) {
   const { id } = use(params);
   const hospitalId = parseInt(id);
 
-  const { data: hospital, isLoading, isError } = useGetHospitalsByIdQuery(hospitalId);
+  const {
+    data: hospital,
+    isLoading,
+    isError,
+  } = useGetHospitalsByIdQuery(hospitalId);
 
   console.log("Hospital Detail Data:", hospitalId);
 
@@ -50,7 +54,8 @@ export default function HospitalDetailPage({ params }: PageProps) {
                 Hospital Not Found
               </h2>
               <p className="text-red-600 mb-6">
-                The hospital you're looking for doesn't exist or has been removed.
+                The hospital you're looking for doesn't exist or has been
+                removed.
               </p>
               <Link
                 href="/hospitals"
@@ -66,17 +71,23 @@ export default function HospitalDetailPage({ params }: PageProps) {
     );
   }
 
-  const formattedCreated = new Date(hospital.created_at).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
+  const formattedCreated = new Date(hospital.created_at).toLocaleDateString(
+    "en-US",
+    {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }
+  );
 
-  const formattedUpdated = new Date(hospital.updated_at).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
+  const formattedUpdated = new Date(hospital.updated_at).toLocaleDateString(
+    "en-US",
+    {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }
+  );
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -117,7 +128,7 @@ export default function HospitalDetailPage({ params }: PageProps) {
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              
+
               {/* Share Button */}
               <button
                 onClick={handleShare}
@@ -143,7 +154,7 @@ export default function HospitalDetailPage({ params }: PageProps) {
                   <Building2 size={24} className="text-blue-600" />
                   Contact Information
                 </h2>
-                
+
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Address */}
                   <div className="flex gap-4 p-4 bg-gray-50 rounded-xl">
@@ -153,10 +164,16 @@ export default function HospitalDetailPage({ params }: PageProps) {
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
-                      <p className="text-gray-600 leading-relaxed">{hospital.address}</p>
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        Address
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {hospital.address}
+                      </p>
                       <a
-                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hospital.address)}`}
+                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                          hospital.address
+                        )}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:text-blue-700 text-sm font-medium mt-2 inline-block"
@@ -174,14 +191,18 @@ export default function HospitalDetailPage({ params }: PageProps) {
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        Phone
+                      </h3>
                       <a
                         href={`tel:${hospital.phone_number}`}
                         className="text-gray-600 hover:text-blue-600 transition-colors"
                       >
                         {hospital.phone_number}
                       </a>
-                      <p className="text-sm text-gray-500 mt-1">Available 24/7</p>
+                      <p className="text-sm text-gray-500 mt-1">
+                        Available 24/7
+                      </p>
                     </div>
                   </div>
 
@@ -193,7 +214,9 @@ export default function HospitalDetailPage({ params }: PageProps) {
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        Email
+                      </h3>
                       <a
                         href={`mailto:${hospital.email}`}
                         className="text-gray-600 hover:text-blue-600 transition-colors break-all"
@@ -211,9 +234,13 @@ export default function HospitalDetailPage({ params }: PageProps) {
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Operating Hours</h3>
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        Operating Hours
+                      </h3>
                       <p className="text-gray-600">Open 24 Hours</p>
-                      <p className="text-sm text-gray-500 mt-1">Emergency services available</p>
+                      <p className="text-sm text-gray-500 mt-1">
+                        Emergency services available
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -228,11 +255,15 @@ export default function HospitalDetailPage({ params }: PageProps) {
                 <div className="grid sm:grid-cols-2 gap-4 text-sm">
                   <div className="flex items-center gap-2 text-gray-600">
                     <span className="font-medium">Created:</span>
-                    <time dateTime={hospital.created_at}>{formattedCreated}</time>
+                    <time dateTime={hospital.created_at}>
+                      {formattedCreated}
+                    </time>
                   </div>
                   <div className="flex items-center gap-2 text-gray-600">
                     <span className="font-medium">Last Updated:</span>
-                    <time dateTime={hospital.updated_at}>{formattedUpdated}</time>
+                    <time dateTime={hospital.updated_at}>
+                      {formattedUpdated}
+                    </time>
                   </div>
                 </div>
               </div>

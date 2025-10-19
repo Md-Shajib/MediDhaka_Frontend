@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { MapPin, Search } from "lucide-react";
 
@@ -42,9 +41,7 @@ export default function DoctorBanner({
           <span className="text-sm text-gray-600">Location</span>
         </div>
 
-        <button
-          className="bg-[#006466] hover:bg-[#005055] text-white px-6 py-2 flex items-center gap-2 rounded-r-full transition-all"
-        >
+        <button className="bg-[#006466] hover:bg-[#005055] text-white px-6 py-2 flex items-center gap-2 rounded-r-full transition-all">
           <Search size={18} />
           <span className="hidden sm:inline">Search</span>
         </button>

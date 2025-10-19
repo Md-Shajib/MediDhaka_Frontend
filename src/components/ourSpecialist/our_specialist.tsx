@@ -22,7 +22,7 @@ export default function OurSpeciality() {
                 Our Speciality
               </h2>
               <div className="w-full max-w-4xl mx-auto overflow-hidden">
-                <SpecialistCarousel carouselData={OUR_SPECIALITIES}/>
+                <SpecialistCarousel carouselData={OUR_SPECIALITIES} />
               </div>
             </div>
           </div>

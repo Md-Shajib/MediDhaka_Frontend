@@ -1,13 +1,12 @@
 "use client";
-
 import Link from "next/link";
-import { NAV_LINKS } from "@/constant/navbar";
-import { useToggle } from "@/hooks/useToggle";
-import SearchPopup from "../SearchPopup";
 import Image from "next/image";
-import { Menu, MoveUpRight, Search, X } from "lucide-react";
 import { useState } from "react";
 import MobileNav from "./MobileNav";
+import SearchPopup from "../SearchPopup";
+import { useToggle } from "@/hooks/useToggle";
+import { NAV_LINKS } from "@/constant/navbar";
+import { Menu, MoveUpRight, Search, X } from "lucide-react";
 
 export default function Navbar() {
   const { open, toggle, close } = useToggle(false);
@@ -57,12 +56,10 @@ export default function Navbar() {
         </div>
 
         {/* Button (Desktop) */}
-        <button
-          className="btn-primary hidden md:inline-block text-sm text-white px-4 py-2.5 rounded-md hover:bg-blue-700 transition"
-        >
+        <button className="btn-primary hidden md:inline-block text-sm text-white px-4 py-2.5 rounded-md hover:bg-blue-700 transition">
           <span className="flex gap-3 items-center ">
             Get Started
-          <MoveUpRight size={16}/>
+            <MoveUpRight size={16} />
           </span>
         </button>
         {/* Mobile Menu Button */}
