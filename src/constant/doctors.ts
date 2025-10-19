@@ -2,6 +2,7 @@ export const DoctorsData = [
     {
         "id": "1",
         "name": "Dr. Ahsan Rahman",
+        "img_url": "/images/doctors/doctor-01.jpg",
         "specialty": "Cardiologist",
         "hospitalName": "Dhaka Heart Center",
         "phone": "+8801711223344",
@@ -10,6 +11,7 @@ export const DoctorsData = [
     {
         "id": "2",
         "name": "Dr. Nusrat Jahan",
+        "img_url": "/images/doctors/doctor-01.jpg",
         "specialty": "Neurologist",
         "hospitalName": "United Hospital",
         "phone": "+8801755332211",
@@ -18,6 +20,7 @@ export const DoctorsData = [
     {
         "id": "3",
         "name": "Dr. Farhan Chowdhury",
+        "img_url": "/images/doctors/doctor-01.jpg",
         "specialty": "Orthopedic Surgeon",
         "hospitalName": "Square Hospital",
         "phone": "+8801677889900",
@@ -26,6 +29,7 @@ export const DoctorsData = [
     {
         "id": "4",
         "name": "Dr. Tamanna Hossain",
+        "img_url": "/images/doctors/doctor-01.jpg",
         "specialty": "Dermatologist",
         "hospitalName": "Popular Diagnostic Center",
         "phone": "+8801922445566",
@@ -34,6 +38,7 @@ export const DoctorsData = [
     {
         "id": "5",
         "name": "Dr. Rafiq Hasan",
+        "img_url": "/images/doctors/doctor-01.jpg",
         "specialty": "Pediatrician",
         "hospitalName": "LabAid Specialized Hospital",
         "phone": "+8801711990088",

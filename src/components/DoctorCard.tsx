@@ -6,6 +6,7 @@ import { Mail, Phone, Hospital, User } from "lucide-react";
 interface DoctorCardProps {
   name: string;
   specialty: string;
+  img_url?: string;
   hospital: string;
   phone?: string;
   email?: string;
@@ -15,10 +16,10 @@ interface DoctorCardProps {
 export default function DoctorCard({
   name,
   specialty,
+  img_url,
   hospital,
   phone,
   email,
-  image,
 }: DoctorCardProps) {
   return (
     <div className="group bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-300">
@@ -27,8 +28,8 @@ export default function DoctorCard({
       <div className="flex items-center gap-5">
         {/* Doctor Image */}
         <div className="relative w-20 h-20 rounded-full overflow-hidden border border-gray-300 group-hover:border-blue-300 transition-all duration-300">
-          {image ? (
-            <Image src={image} alt={name} fill className="object-cover" />
+          {img_url ? (
+            <Image src={img_url} alt={name} fill className="object-cover" />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-blue-50 text-blue-500">
               <User size={32} />

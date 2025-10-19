@@ -18,7 +18,7 @@ export default function OurSpeciality() {
               />
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-blue-900 mb-4">
+              <h2 className="text-3xl font-bold text-primary mb-4">
                 Our Speciality
               </h2>
               <div className="w-full max-w-4xl mx-auto overflow-hidden">

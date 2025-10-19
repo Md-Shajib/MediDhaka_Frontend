@@ -54,3 +54,13 @@ export interface DoctorFormErrors {
   email?: string;
   image_url?: string;
 }
+
+export interface DoctorData {
+  id: string;
+  name: string;
+  img_url: string;
+  specialty: string;
+  hospitalName: string;
+  phone: string;
+  email: string;
+}

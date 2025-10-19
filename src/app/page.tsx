@@ -1,4 +1,5 @@
 
+import ArticleSection from "@/components/ArticleSection";
 import DoctorSection from "@/components/DoctorSection";
 import Footer from "@/components/footer/footer";
 import Hero from "@/components/hero/Hero";
@@ -12,8 +13,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <OurSpeciality />
+      <ArticleSection />
       <DoctorSection />
-      <HospitalSection />
       <Footer />
     </>
   );

@@ -43,3 +43,11 @@ export interface HospitalFilters {
   sortBy?: 'name' | 'created_at' | 'updated_at';
   sortOrder?: 'asc' | 'desc';
 }
+
+export interface HospitalDataProps {
+  id: string;
+  name: string;
+  location: string;
+  phone: string;
+  email: string;
+}

@@ -1,7 +1,5 @@
-'use client';
-
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -13,18 +11,19 @@ const Hero = () => {
             Find the Right Doctor & Hospital in Dhaka
           </h1>
           <p className="mt-4 text-gray-700 text-lg md:text-xl">
-            Search, compare, and connect with trusted healthcare professionals near you.
+            Search, compare, and connect with trusted healthcare professionals
+            near you.
           </p>
           <div className="mt-6 flex justify-center md:justify-start gap-4">
             <Link
               href="/doctors"
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+              className="px-6 py-3 btn-primary text-white rounded-lg transition duration-300"
             >
               Explore Doctors
             </Link>
             <Link
               href="/hospitals"
-              className="px-6 py-3 bg-white border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition"
+              className="px-6 py-3 bg-white border border-primary text-primary rounded-lg hover:bg-blue-50 transition"
             >
               View Hospitals
             </Link>
