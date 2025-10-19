@@ -124,7 +124,7 @@ export default function HospitalFormModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
       <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-5 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-teal-600 to-teal-700 px-6 py-5 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
               <Building2 size={24} className="text-white" />
@@ -151,7 +151,7 @@ export default function HospitalFormModal({
             {/* Hospital Name */}
             <div>
               <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                <Building2 size={16} className="text-blue-600" />
+                <Building2 size={16} className="text-teal-800" />
                 Hospital Name *
               </label>
               <input
@@ -174,7 +174,7 @@ export default function HospitalFormModal({
             {/* Address */}
             <div>
               <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                <MapPin size={16} className="text-blue-600" />
+                <MapPin size={16} className="text-teal-800" />
                 Address *
               </label>
               <textarea
@@ -197,7 +197,7 @@ export default function HospitalFormModal({
             {/* Phone Number */}
             <div>
               <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                <Phone size={16} className="text-blue-600" />
+                <Phone size={16} className="text-teal-800" />
                 Phone Number *
               </label>
               <input
@@ -220,7 +220,7 @@ export default function HospitalFormModal({
             {/* Email */}
             <div>
               <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                <Mail size={16} className="text-blue-600" />
+                <Mail size={16} className="text-teal-800" />
                 Email Address *
               </label>
               <input
@@ -243,7 +243,7 @@ export default function HospitalFormModal({
             {/* Image URL */}
             <div>
               <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-                <ImageIcon size={16} className="text-blue-600" />
+                <ImageIcon size={16} className="text-teal-800" />
                 Image URL (Optional)
               </label>
               <input
@@ -264,14 +264,14 @@ export default function HospitalFormModal({
               <button
                 type="button"
                 onClick={onClose}
-                className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors font-semibold"
+                className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-xl hover:bg-teal-50 transition-colors font-semibold"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="flex-1 px-6 py-3 bg-gradient-to-r from-teal-600 to-teal-700 text-white rounded-xl hover:from-teal-700 hover:to-teal-800 transition-all font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>

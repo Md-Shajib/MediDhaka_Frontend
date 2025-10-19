@@ -42,7 +42,7 @@ export default function DashboardNav() {
           </div>
 
           <div className="flex items-center">
-            <button className="hidden md:inline-block text-sm bg-blue-600 text-white px-4 py-2.5 rounded-md hover:bg-blue-700 transition">
+            <button className="hidden md:inline-block btn-primary text-sm px-4 py-2.5 rounded-md hover:bg-blue-700 transition">
               <span className="flex gap-3 items-center ">
                 Get Started
                 <MoveUpRight size={16} />

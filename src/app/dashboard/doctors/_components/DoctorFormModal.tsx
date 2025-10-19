@@ -210,25 +210,25 @@ export default function DoctorFormModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50">
-      <div className="bg-white w-full max-w-2xl p-6 rounded-lg shadow-lg relative">
+    <div className="fixed inset-0 bg-black/60 flex justify-center items-center z-50">
+      <div className="bg-white w-full max-w-2xl rounded-lg shadow-lg relative">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 text-gray-500 hover:text-gray-700"
+          className="absolute right-5 top-5 text-gray-500 hover:text-gray-700"
         >
-          <X className="w-5 h-5" />
+          <X className="w-6 h-6" />
         </button>
 
-        <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-          <Stethoscope className="w-6 h-6 text-blue-600" />
+        <h2 className="text-2xl p-6 font-semibold mb-4 flex items-center gap-2 bg-gradient-to-r from-teal-500 to-teal-400 rounded-t-md">
+          <Stethoscope className="w-6 h-6 text-gray-600 mr-3" />
           {isEditing ? "Edit Doctor" : "Add Doctor"}
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 p-6">
           {/* Doctor Info Fields */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="flex items-center gap-2 font-medium">
+              <label className="flex items-center gap-2 font-medium text-gray-400">
                 <Stethoscope className="w-4 h-4" /> Name
               </label>
               <input
@@ -241,7 +241,7 @@ export default function DoctorFormModal({
             </div>
 
             <div>
-              <label className="flex items-center gap-2 font-medium">
+              <label className="flex items-center gap-2 font-medium text-gray-400">
                 <Award className="w-4 h-4" /> Specialty
               </label>
               <input
@@ -254,7 +254,7 @@ export default function DoctorFormModal({
             </div>
 
             <div>
-              <label className="flex items-center gap-2 font-medium">
+              <label className="flex items-center gap-2 font-medium text-gray-400">
                 <Briefcase className="w-4 h-4" /> Experience (Years)
               </label>
               <input
@@ -267,7 +267,7 @@ export default function DoctorFormModal({
             </div>
 
             <div>
-              <label className="flex items-center gap-2 font-medium">
+              <label className="flex items-center gap-2 font-medium text-gray-400">
                 <Phone className="w-4 h-4" /> Phone
               </label>
               <input
@@ -280,7 +280,7 @@ export default function DoctorFormModal({
             </div>
 
             <div>
-              <label className="flex items-center gap-2 font-medium">
+              <label className="flex items-center gap-2 font-medium text-gray-400">
                 <Mail className="w-4 h-4" /> Email
               </label>
               <input
@@ -293,7 +293,7 @@ export default function DoctorFormModal({
             </div>
 
             <div>
-              <label className="flex items-center gap-2 font-medium">
+              <label className="flex items-center gap-2 font-medium text-gray-400">
                 <ImageIcon className="w-4 h-4" /> Image URL
               </label>
               <input
@@ -307,7 +307,7 @@ export default function DoctorFormModal({
 
           {/* Hospital Assignments */}
           <div className="mt-4">
-            <label className="flex items-center gap-2 font-medium mb-2">
+            <label className="flex items-center gap-2 font-medium mb-2 text-gray-400">
               <Building2 className="w-4 h-4" /> Assigned Hospitals
             </label>
 
@@ -346,7 +346,7 @@ export default function DoctorFormModal({
             <button
               type="button"
               onClick={addHospitalAssignment}
-              className="text-blue-600 flex items-center gap-1 mt-2"
+              className="border border-teal-700 text-teal-700 hover:text-white bg-teal-50 hover:bg-teal-800 rounded-md px-3 py-1.5 flex items-center gap-1 mt-2 transition duration-300"
             >
               <Plus className="w-4 h-4" /> Add Hospital
             </button>
@@ -355,7 +355,7 @@ export default function DoctorFormModal({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-blue-600 text-white py-2 rounded-md flex items-center justify-center gap-2 hover:bg-blue-700"
+            className="w-full bg-teal-600 text-white py-2 rounded-md flex items-center justify-center gap-2 hover:bg-teal-700"
           >
             {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : "Save"}
           </button>

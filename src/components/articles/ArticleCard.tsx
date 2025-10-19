@@ -20,26 +20,12 @@ export default function ArticleCard({ article }: { article: Article }) {
         <div className={`relative h-40 overflow-hidden flex-shrink-0`}>
           <div
             className={`absolute top-0 left-0 w-3/5 h-full ${article.imageTheme} transform -skew-x-12 origin-top-left -ml-16`}
-          ></div>
-
+          />
           <img
             src={article.imageUrl}
             alt={article.title}
-            className="absolute right-0 w-2/3 h-full object-cover z-10"
+            className="absolute right-0 w-full h-full object-cover z-10"
           />
-
-          <div className="absolute top-0 left-0 h-full w-2/5 flex flex-col justify-center p-6 text-white z-20">
-            <p className="text-sm font-semibold mb-2 opacity-80">
-              {article.imageOverlayText}
-            </p>
-            <h3 className="text-xl font-extrabold leading-tight">
-              {article.imageOverlayText.split(" ").slice(0, 3).join(" ")}
-              <span className="block text-sm font-medium mt-1">
-                {article.specialty.split(" ")[0]}:{" "}
-                {article.description.split(" ")[0]}...
-              </span>
-            </h3>
-          </div>
         </div>
 
         <div className="p-5 flex flex-col flex-grow">

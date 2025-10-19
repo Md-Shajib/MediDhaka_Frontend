@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
 import WebLayout from "../layout/web_layout";
-import HospitalTable from "./_components/hospitals/HospitalTable";
-import HospitalFormModal from "./_components/hospitals/HospitalFormModal";
-import DashboardHeader from "./_components/DashboardHeader";
-import DashboardStats from "./_components/hospitals/DashboardStats";
 import DashboardNav from "@/components/navbar/DashboardNav";
+import DashboardHeader from "./_components/DashboardHeader";
+import HospitalTable from "./_components/hospitals/HospitalTable";
+import DashboardStats from "./_components/hospitals/DashboardStats";
+import HospitalFormModal from "./_components/hospitals/HospitalFormModal";
 
 export default function DashboardHospitalPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);

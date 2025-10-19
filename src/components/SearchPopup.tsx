@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import { X } from "lucide-react";
-import debounce from "lodash.debounce";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGetSearchQuery } from "@/store/service/search.service";
+import { useDebounce } from "@/hooks/useDebounce";
 
 interface Props {
   onClose: () => void;
@@ -12,20 +12,7 @@ interface Props {
 
 const SearchPopup: React.FC<Props> = ({ onClose }) => {
   const [query, setQuery] = useState("");
-  const [debouncedQuery, setDebouncedQuery] = useState("");
-
-  // debounce the input
-  const debounceQuery = React.useMemo(
-    () =>
-      debounce((val: string) => {
-        setDebouncedQuery(val);
-      }, 300), // 300ms delay
-    []
-  );
-
-  useEffect(() => {
-    debounceQuery(query);
-  }, [query, debounceQuery]);
+  const debouncedQuery = useDebounce(query, 300);
 
   // RTK Query hook for live search
   const { data, isLoading } = useGetSearchQuery(

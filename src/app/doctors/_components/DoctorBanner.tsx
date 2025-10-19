@@ -36,11 +36,6 @@ export default function DoctorBanner({
           className="flex-1 px-4 py-2 text-base outline-none border-none"
         />
 
-        <div className="flex items-center gap-2 px-4 border-l border-gray-300">
-          <MapPin size={18} className="text-gray-500" />
-          <span className="text-sm text-gray-600">Location</span>
-        </div>
-
         <button className="bg-[#006466] hover:bg-[#005055] text-white px-6 py-2 flex items-center gap-2 rounded-r-full transition-all">
           <Search size={18} />
           <span className="hidden sm:inline">Search</span>
